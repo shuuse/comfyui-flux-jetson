@@ -122,4 +122,24 @@ Once running, access the UI via:
 127.0.0.1:8188
 ```
 
+## 10. Run as a Server
+Keep ComfyUI running so you can call it whenever you need. If you just want to run it in the background quickly, you could do:
+```bash
+nohup env HEADLESS=1 python main.py > comfyui.log 2>&1 &
+```
+
+Explanation:
+env HEADLESS=1 ensures that the environment variable is correctly set for the python process.
+> comfyui.log 2>&1 & redirects both stdout and stderr to comfyui.log so you can check for errors if needed.
+To check if it’s running:
+```bash
+ps aux | grep main.py
+```
+
+To stop it if needed:
+
+```bash
+pkill -f main.py
+```
+
 Enjoy generating images with ComfyUI and Flux on Jetson Orin!
